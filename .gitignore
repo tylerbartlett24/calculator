@@ -169,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Program for screwing around
+screwaround.py
+profile.png
