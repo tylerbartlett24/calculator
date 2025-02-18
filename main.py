@@ -22,28 +22,37 @@ def btn_equal():
     """This function evaluates the expression in the input field when the 
     = button is pressed."""
     global expression
-    intermediate = expression.replace("^", "**")
-    result = str(eval(intermediate))
-    input_text.set(result)
-    expression = result
+    try:
+        intermediate = expression.replace("^", "**")
+        result = str(eval(intermediate))
+        input_text.set(result)
+        expression = result
+    except ZeroDivisionError:
+        input_text.set("ERR")
     
 def btn_perc():
     """This function moves the decimal place 2 places to the left when the
     % key is pressed."""
     global expression
-    intermediate = expression.replace("^", "**")
-    result = str(eval(intermediate + "/100"))
-    input_text.set(result)
-    expression = result
+    try:
+        intermediate = expression.replace("^", "**")
+        result = str(eval(intermediate + "/100"))
+        input_text.set(result)
+        expression = result
+    except ZeroDivisionError:
+        input_text.set("ERR")
+        
     
 def btn_inv():
-    """This function moves the decimal place 2 places to the left when the
-    % key is pressed."""
+    """This function inverts the expression when the 1/x key is pressed."""
     global expression
-    intermediate = expression.replace("^", "**")
-    result = str(eval("1/" + intermediate))
-    input_text.set(result)
-    expression = result
+    try:
+        intermediate = expression.replace("^", "**")
+        result = str(eval("1/" + intermediate))
+        input_text.set(result)
+        expression = result
+    except ZeroDivisionError:
+        input_text.set("ERR")
     
 expression = ""
 
